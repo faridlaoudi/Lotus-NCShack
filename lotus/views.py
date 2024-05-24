@@ -28,7 +28,16 @@ class LoginView(generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         username = request.data.get("username")
         password = request.data.get("password")
+        
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return Response({
+                "error": "User not found"
+            }, status=status.HTTP_404_NOT_ACCEPTABLE)
+        
         user = authenticate(username=username, password=password)
+        
         if user is not None:
             token, created = Token.objects.get_or_create(user=user)
             return Response({
@@ -36,5 +45,5 @@ class LoginView(generics.GenericAPIView):
             }, status=status.HTTP_200_OK)
         else:
             return Response({
-                "error": "Invalid Credentials"
-            }, status=status.HTTP_401_UNAUTHORIZED)
+                "error": "Incorrect password"
+            }, status=status.HTTP_406_NOT_FOUND)
