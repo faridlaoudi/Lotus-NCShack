@@ -1,9 +1,11 @@
+# lotus/views.py
+
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework.authtoken.models import Token
-from django.contrib.auth.models import User
 from .serializers import UserSerializer
 
 class RegisterView(generics.CreateAPIView):
@@ -34,7 +36,7 @@ class LoginView(generics.GenericAPIView):
         except User.DoesNotExist:
             return Response({
                 "error": "User not found"
-            }, status=status.HTTP_404_NOT_ACCEPTABLE)
+            }, status=status.HTTP_406_NOT_ACCEPTABLE)
         
         user = authenticate(username=username, password=password)
         
@@ -46,4 +48,4 @@ class LoginView(generics.GenericAPIView):
         else:
             return Response({
                 "error": "Incorrect password"
-            }, status=status.HTTP_406_NOT_FOUND)
+            }, status=status.HTTP_404_NOT_FOUND)
