@@ -1,0 +1,42 @@
+name: lotus
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.10+1
+  flutter_animate: ^4.5.0
+  material_design_icons_flutter: ^7.0.7296
+  calendar_timeline_sbk: ^1.1.7
+  http: ^1.2.1
+  alphabet_scroll_view: ^0.3.2
+  chat_bubbles: ^1.5.0
+  cookie_jar: ^4.0.8
+  dio: ^5.4.3+1
+  dio_cookie_manager: ^3.1.1
+  google_generative_ai: ^0.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
+        - asset: fonts/Poppins-Medium.ttf
+        - asset: fonts/Poppins-SemiBold.ttf
