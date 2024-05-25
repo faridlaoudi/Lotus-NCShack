@@ -54,7 +54,7 @@ Provides detailed insights into product sales and usage trends, highlighting top
 ##### -API Integration: http
 
 
-### Code Showcase
+### Code Showcase (Some pieces from our hard coding)
 #### Backend - Express.js with PostgreSQL
 ```bash
 const express = require('express');
@@ -80,7 +80,7 @@ const pool = new Pool({
 #### Endpoints
 ##### 1. Login Endpoint
 
-```bash
+```javascript
 // Endpoint: login
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
@@ -100,7 +100,7 @@ app.post('/login', async (req, res) => {
 ```
 
 ##### 2. Number of Suppliers Endpoint
-```bash
+```javascript
 // Endpoint: numsup
 app.get('/numsup', async (req, res) => {
     const query = 'SELECT count(*) as total FROM suppliers';
@@ -117,7 +117,7 @@ app.get('/numsup', async (req, res) => {
 ```
 
 ##### 3. Total Medications Sold Endpoint
-```bash
+```javascript
 // Endpoint: medsold
 app.get('/medsold', async (req, res) => {
     const query = 'SELECT sum(qte_sold) as total FROM sales';
@@ -133,7 +133,7 @@ app.get('/medsold', async (req, res) => {
 ```
 
 ##### 4. Total Medications Sold Endpoint
-```bash
+```javascript
 // Endpoint: listmeds
 app.get('/listmeds', async (req, res) => {
     const query = `SELECT d.id, d.name, d.category, d.description, d.unit_price, d.unit_reduction_price, 
@@ -153,7 +153,7 @@ app.get('/listmeds', async (req, res) => {
 ```
 
 ##### 5. List Suppliers Endpoint
-```bash
+```javascript
 // Endpoint: listsups
 app.get('/listsups', async (req, res) => {
     const query = 'SELECT * FROM suppliers';
@@ -172,7 +172,7 @@ app.get('/listsups', async (req, res) => {
 
 #### Server Initialization
 
-```bash
+```javascript
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
@@ -181,3 +181,5 @@ app.listen(port, () => {
 
 
 ```
+
+#### Dashboard (Pharmacy)
